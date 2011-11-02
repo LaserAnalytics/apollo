@@ -1,0 +1,4 @@
+Apollo requires the [Laser Analytics TIFF writing library][latwuc] to function.
+
+[latwuc]: https://github.com/LaserAnalytics/latwuc "Laser Analytics TIFF Writer University of Cambridge"
+
