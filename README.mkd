@@ -1,10 +1,13 @@
+The main file is `apollo.vi`. A project file `apollo.lvproj` should be used if
+editing is required.
+
 The install files and instructions to install the Starlight Xpress SXVF-H9
 camera are in `SXVF-H9_install.zip`.
 
-Apollo requires the [Laser Analytics TIFF writing library][latwuc] to function.
-A compiled .dll is included in the `lib` folder, but this may not work if your
-system is not 32-bit windows. To recompile the latwuc.dll file, please the the
-[latwuc][latwuc] github page.
+Apollo requires the [Laser Analytics TIFF writing library][camtiff] to
+function.  A compiled .dll is included in the `lib` folder, but this may not
+work if your system is not 32-bit windows. To recompile the camtiff.dll file,
+please the the [camtiff][latwuc] github page.
 
-[latwuc]: https://github.com/LaserAnalytics/latwuc "Laser Analytics TIFF Writer University of Cambridge"
+[camtiff]: https://github.com/LaserAnalytics/latwuc "Laser Analytics TIFF Writer University of Cambridge"
 
