@@ -12,6 +12,7 @@
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
 		<Item Name="lib" Type="Folder">
 			<Item Name="averageColumns.vi" Type="VI" URL="../lib/averageColumns.vi"/>
+			<Item Name="saveDialogTiff.vi" Type="VI" URL="../lib/saveDialogTiff.vi"/>
 			<Item Name="averageRows.vi" Type="VI" URL="../lib/averageRows.vi"/>
 			<Item Name="latwuc.dll" Type="Document" URL="../lib/latwuc.dll"/>
 			<Item Name="tiffWrite.vi" Type="VI" URL="../lib/tiffWrite.vi"/>
@@ -19,6 +20,7 @@
 		<Item Name="apollo.vi" Type="VI" URL="../apollo.vi"/>
 		<Item Name="Camera.lvclass" Type="LVClass" URL="../lib/Camera/Camera.lvclass"/>
 		<Item Name="SimulatedCamera.lvclass" Type="LVClass" URL="../lib/Camera/SimulatedCamera/SimulatedCamera.lvclass"/>
+		<Item Name="SVXF-H9.lvclass" Type="LVClass" URL="../lib/Camera/SXVF-H9/SVXF-H9.lvclass"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="NI_AALBase.lvlib" Type="Library" URL="/&lt;vilib&gt;/Analysis/NI_AALBase.lvlib"/>
@@ -65,6 +67,12 @@
 				<Item Name="DialogType.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/DialogType.ctl"/>
 				<Item Name="Release Semaphore Reference.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/semaphor.llb/Release Semaphore Reference.vi"/>
 				<Item Name="RemoveNamedSemaphorePrefix.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/semaphor.llb/RemoveNamedSemaphorePrefix.vi"/>
+				<Item Name="CCD Open.vi" Type="VI" URL="/&lt;vilib&gt;/Starlight Xpress/CCD Open.vi"/>
+				<Item Name="sxusbcam.dll" Type="Document" URL="/&lt;vilib&gt;/Starlight Xpress/sxusbcam.dll"/>
+				<Item Name="CCD Reset.vi" Type="VI" URL="/&lt;vilib&gt;/Starlight Xpress/CCD Reset.vi"/>
+				<Item Name="CCD Expose Pixels.vi" Type="VI" URL="/&lt;vilib&gt;/Starlight Xpress/CCD Expose Pixels.vi"/>
+				<Item Name="CCD Read Pixels.vi" Type="VI" URL="/&lt;vilib&gt;/Starlight Xpress/CCD Read Pixels.vi"/>
+				<Item Name="CCD Close.vi" Type="VI" URL="/&lt;vilib&gt;/Starlight Xpress/CCD Close.vi"/>
 				<Item Name="subFile Dialog.vi" Type="VI" URL="/&lt;vilib&gt;/express/express input/FileDialogBlock.llb/subFile Dialog.vi"/>
 				<Item Name="ex_CorrectErrorChain.vi" Type="VI" URL="/&lt;vilib&gt;/express/express shared/ex_CorrectErrorChain.vi"/>
 			</Item>
