@@ -16,11 +16,12 @@
 			<Item Name="averageRows.vi" Type="VI" URL="../lib/averageRows.vi"/>
 			<Item Name="latwuc.dll" Type="Document" URL="../lib/latwuc.dll"/>
 			<Item Name="tiffWrite.vi" Type="VI" URL="../lib/tiffWrite.vi"/>
+			<Item Name="dynLoadSXVF-H9.vi" Type="VI" URL="../lib/dynLoadSXVF-H9.vi"/>
 		</Item>
 		<Item Name="apollo.vi" Type="VI" URL="../apollo.vi"/>
 		<Item Name="Camera.lvclass" Type="LVClass" URL="../lib/Camera/Camera.lvclass"/>
 		<Item Name="SimulatedCamera.lvclass" Type="LVClass" URL="../lib/Camera/SimulatedCamera/SimulatedCamera.lvclass"/>
-		<Item Name="SVXF-H9.lvclass" Type="LVClass" URL="../lib/Camera/SXVF-H9/SVXF-H9.lvclass"/>
+		<Item Name="SXVF-H9.lvclass" Type="LVClass" URL="../lib/Camera/SXVF-H9/SXVF-H9.lvclass"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="NI_AALBase.lvlib" Type="Library" URL="/&lt;vilib&gt;/Analysis/NI_AALBase.lvlib"/>
