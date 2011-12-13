@@ -48,7 +48,7 @@
 		<Property Name="NI.LibItem.Scope" Type="Int">3</Property>
 	</Item>
 	<Item Name="startCamera.vi" Type="VI" URL="../startCamera.vi">
-		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">#'#!!1!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!$&amp;!!!!#!!E1(!!(A!!%!Z$97VF=G%O&lt;(:D&lt;'&amp;T=Q!!#5.B&lt;76S93"J&lt;A!%!!!!"1!'!!!1!%!!!P``````````!!)!%%"Q!")!!1!$"8&amp;V:86F!"I!=!!?!!!1$E.B&lt;76S93ZM&gt;G.M98.T!!!!)E"Q!!A!!1!&amp;!'9!!"*$97VF=G%O&lt;(:D&lt;'&amp;T=S"S:79!!$1!]!!+!!!!!1!%!!%!!1!"!!9!!1!"!!%$!!#A#A!!!!IA!!!!!!!!#3!!!!!!!!!!!!!"!!=!!!!!</Property>
+		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">#'#!!1!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!$&amp;!!!!#!!E1(!!(A!!%!Z$97VF=G%O&lt;(:D&lt;'&amp;T=Q!!#5.B&lt;76S93"J&lt;A!%!!!!"1!'!!!1!%!!!P``````````!!)!%%"Q!")!!1!$"8&amp;V:86F!"I!=!!?!!!1$E.B&lt;76S93ZM&gt;G.M98.T!!!!)E"Q!!A!!1!&amp;!'9!!"*$97VF=G%O&lt;(:D&lt;'&amp;T=S"S:79!!$1!]!!+!!!!!1!%!!%!!1!"!!9!!1!"!!%$!!#A#A!!!!I!!!!!!!!!#1!!!!!!!!!!!!!"!!=!!!!!</Property>
 		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
 		<Property Name="NI.ClassItem.Flags" Type="Int">262400</Property>
 		<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">true</Property>
