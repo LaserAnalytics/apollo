@@ -16,7 +16,7 @@
 			<Item Name="averageRows.vi" Type="VI" URL="../lib/averageRows.vi"/>
 			<Item Name="latwuc.dll" Type="Document" URL="../lib/latwuc.dll"/>
 			<Item Name="tiffWrite.vi" Type="VI" URL="../lib/tiffWrite.vi"/>
-			<Item Name="dynLoadSXVF-H9.vi" Type="VI" URL="../lib/dynLoadSXVF-H9.vi"/>
+			<Item Name="loadCameraClass.vi" Type="VI" URL="../lib/loadCameraClass.vi"/>
 		</Item>
 		<Item Name="apollo.vi" Type="VI" URL="../apollo.vi"/>
 		<Item Name="Camera.lvclass" Type="LVClass" URL="../lib/Camera/Camera.lvclass"/>
@@ -76,6 +76,7 @@
 				<Item Name="CCD Close.vi" Type="VI" URL="/&lt;vilib&gt;/Starlight Xpress/CCD Close.vi"/>
 				<Item Name="subFile Dialog.vi" Type="VI" URL="/&lt;vilib&gt;/express/express input/FileDialogBlock.llb/subFile Dialog.vi"/>
 				<Item Name="ex_CorrectErrorChain.vi" Type="VI" URL="/&lt;vilib&gt;/express/express shared/ex_CorrectErrorChain.vi"/>
+				<Item Name="Get LV Class Default Value.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/LVClass/Get LV Class Default Value.vi"/>
 			</Item>
 			<Item Name="lvanlys.dll" Type="Document" URL="../../../../../../Program Files/National Instruments/LabVIEW 8.6/resource/lvanlys.dll"/>
 			<Item Name="camtiff.dll" Type="Document" URL="../lib/camtiff.dll"/>
