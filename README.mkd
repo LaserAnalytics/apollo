@@ -99,6 +99,9 @@ The graphs and image both feature a control palette that allows zooming,
 panning, and cursor movement. The graph palette is above the above the graph
 and image palette is below the image.
 
+To quit the program simply press the red close button on the top right corner
+of the application (like any other Windows application).
+
 Program
 =======
 
@@ -145,6 +148,50 @@ defined child classes of _Camera.lvclass_, such as _SimulatedCamera_.
 That's it! Your new camera can now be picked from the Apollo initial dialogue
 box and used to capture frames.
 
+For those who are curious how Apollo works
+------------------------------------------
+
+It is a secret! I am joking, the GPL forces the application to be an open
+book, so I may as well describe it to you. :-)
+
+The basics behind Apollo is a multithreaded [producer-consumer
+loop][producer-consumer] with semaphores used to protect the producer loop
+from being terminated mid-capture. Both the front end and the Camera class
+have access to a semaphore that describes whether or not the camera is
+running. The front panel acquires this semaphore and sets the class' running
+boolean to false in order to stop execution.
+
+The camera subclass is dynamically loaded into memory at the beginning of the
+program. This allows the program to be used when the drivers and support files
+for certain cameras are not installed on the system. A pointer is then created
+for the Camera child class instance, which allows the producer and consumer
+loops to access the same instance instead of duplications caused by branching.
+
+The Camera class adds images onto a queue as fast as possible inside a while
+loop. This queue is then access through the Apollo front end to remove items
+every thirty microseconds. When the consumer removes items, it only removes
+the number of items that are in the buffer at the beginning of its check of
+the buffer. Hence more images can be added to the queue while the dequeue
+operations are occurring.
+
+These images are then displayed on the front panel. If the capture mode is
+set, then the images are appended to a three dimensional unsigned 16-bit
+array, and the number of frames captured is incremented. A cursor on the image
+control allows for the values from a row of pixels to be graphed on the grid
+above the image. A set of rows can be averaged and graphed this way by
+altering the _cursor width_ control.
+
+When the _Save_ button is pressed, the array and support information is passed
+to a DLL called _camtiff.dll_, which is an interface to the libTIFF 3.9.5 C
+library. This allows for the frames to be saved, along with metadata about the
+images such as the experimenter's name.
+
+Finally, when the program is closed the queue is released and the
+appropriate _hardwareStop.vi_ is called for camera in use.
+
+If you would like to explore this yourself, all of the producer code is
+located in _Camera.lvclass_ and all of the consumer and front panel code can
+be access through _apollo.vi_.
 
 Naming Conventions
 ------------------
@@ -180,6 +227,8 @@ this program. If not, see <http://www.gnu.org/licenses/>.
 
 <!-- Links -->
 [camtiff]: https://github.com/LaserAnalytics/camtiff "University of Cambridge TIFF Writer"
+[producer-consumer]: http://en.wikipedia.org/wiki/Producer-consumer_problem
+"Wikipedia: Producer-consumer problem"
 
 <!-- vim: set spelllang=en_gb: -->
 <!-- vim: set spell: -->
