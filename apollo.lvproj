@@ -10,18 +10,10 @@
 		<Property Name="server.vi.callsEnabled" Type="Bool">true</Property>
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
-		<Item Name="lib" Type="Folder">
-			<Item Name="averageColumns.vi" Type="VI" URL="../lib/averageColumns.vi"/>
-			<Item Name="saveDialogTiff.vi" Type="VI" URL="../lib/saveDialogTiff.vi"/>
-			<Item Name="averageRows.vi" Type="VI" URL="../lib/averageRows.vi"/>
-			<Item Name="latwuc.dll" Type="Document" URL="../lib/latwuc.dll"/>
-			<Item Name="tiffWrite.vi" Type="VI" URL="../lib/tiffWrite.vi"/>
-			<Item Name="loadCameraClass.vi" Type="VI" URL="../lib/loadCameraClass.vi"/>
+		<Item Name="lib" Type="Folder" URL="../lib">
+			<Property Name="NI.DISK" Type="Bool">true</Property>
 		</Item>
 		<Item Name="apollo.vi" Type="VI" URL="../apollo.vi"/>
-		<Item Name="Camera.lvclass" Type="LVClass" URL="../lib/Camera/Camera.lvclass"/>
-		<Item Name="SimulatedCamera.lvclass" Type="LVClass" URL="../lib/Camera/SimulatedCamera/SimulatedCamera.lvclass"/>
-		<Item Name="SXVF-H9.lvclass" Type="LVClass" URL="../lib/Camera/SXVF-H9/SXVF-H9.lvclass"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="NI_AALBase.lvlib" Type="Library" URL="/&lt;vilib&gt;/Analysis/NI_AALBase.lvlib"/>
@@ -69,18 +61,87 @@
 				<Item Name="Release Semaphore Reference.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/semaphor.llb/Release Semaphore Reference.vi"/>
 				<Item Name="RemoveNamedSemaphorePrefix.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/semaphor.llb/RemoveNamedSemaphorePrefix.vi"/>
 				<Item Name="CCD Open.vi" Type="VI" URL="/&lt;vilib&gt;/Starlight Xpress/CCD Open.vi"/>
-				<Item Name="sxusbcam.dll" Type="Document" URL="/&lt;vilib&gt;/Starlight Xpress/sxusbcam.dll"/>
 				<Item Name="CCD Reset.vi" Type="VI" URL="/&lt;vilib&gt;/Starlight Xpress/CCD Reset.vi"/>
 				<Item Name="CCD Expose Pixels.vi" Type="VI" URL="/&lt;vilib&gt;/Starlight Xpress/CCD Expose Pixels.vi"/>
 				<Item Name="CCD Read Pixels.vi" Type="VI" URL="/&lt;vilib&gt;/Starlight Xpress/CCD Read Pixels.vi"/>
 				<Item Name="CCD Close.vi" Type="VI" URL="/&lt;vilib&gt;/Starlight Xpress/CCD Close.vi"/>
 				<Item Name="subFile Dialog.vi" Type="VI" URL="/&lt;vilib&gt;/express/express input/FileDialogBlock.llb/subFile Dialog.vi"/>
 				<Item Name="ex_CorrectErrorChain.vi" Type="VI" URL="/&lt;vilib&gt;/express/express shared/ex_CorrectErrorChain.vi"/>
+				<Item Name="sxusbcam.dll" Type="Document" URL="/&lt;vilib&gt;/Starlight Xpress/sxusbcam.dll"/>
 				<Item Name="Get LV Class Default Value.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/LVClass/Get LV Class Default Value.vi"/>
 			</Item>
 			<Item Name="lvanlys.dll" Type="Document" URL="../../../../../../Program Files/National Instruments/LabVIEW 8.6/resource/lvanlys.dll"/>
-			<Item Name="camtiff.dll" Type="Document" URL="../lib/camtiff.dll"/>
 		</Item>
-		<Item Name="Build Specifications" Type="Build"/>
+		<Item Name="Build Specifications" Type="Build">
+			<Item Name="Apollo" Type="EXE">
+				<Property Name="App_applicationGUID" Type="Str">{9CB62FEA-5F8E-4387-91E6-5FE69833EEF8}</Property>
+				<Property Name="App_applicationName" Type="Str">apollo.exe</Property>
+				<Property Name="App_companyName" Type="Str">University of Cambridge</Property>
+				<Property Name="App_fileDescription" Type="Str">Apollo</Property>
+				<Property Name="App_fileVersion.major" Type="Int">1</Property>
+				<Property Name="App_INI_aliasGUID" Type="Str">{B318E666-3634-4351-8351-C46129E7241D}</Property>
+				<Property Name="App_INI_GUID" Type="Str">{2E1F0E44-0ABB-4125-8E70-26984DAD43F0}</Property>
+				<Property Name="App_internalName" Type="Str">Apollo</Property>
+				<Property Name="App_legalCopyright" Type="Str">Copyright © 2011 University of Cambridge</Property>
+				<Property Name="App_productName" Type="Str">Apollo</Property>
+				<Property Name="Bld_buildSpecName" Type="Str">Apollo</Property>
+				<Property Name="Bld_excludeLibraryItems" Type="Bool">true</Property>
+				<Property Name="Bld_excludePolymorphicVIs" Type="Bool">true</Property>
+				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
+				<Property Name="Destination[0].destName" Type="Str">apollo.exe</Property>
+				<Property Name="Destination[0].path" Type="Path">../builds/NI_AB_PROJECTNAME/Apollo/internal.llb</Property>
+				<Property Name="Destination[0].type" Type="Str">App</Property>
+				<Property Name="Destination[1].destName" Type="Str">Support Directory</Property>
+				<Property Name="Destination[1].path" Type="Path">../builds/NI_AB_PROJECTNAME/Apollo/data</Property>
+				<Property Name="DestinationCount" Type="Int">2</Property>
+				<Property Name="Source[0].Container.applyDestination" Type="Bool">true</Property>
+				<Property Name="Source[0].destinationIndex" Type="Int">0</Property>
+				<Property Name="Source[0].itemID" Type="Str">{14C602E7-38B5-4746-8C15-AD85545B9CAB}</Property>
+				<Property Name="Source[0].type" Type="Str">Container</Property>
+				<Property Name="Source[1].Container.applyInclusion" Type="Bool">true</Property>
+				<Property Name="Source[1].Container.applySaveSettings" Type="Bool">true</Property>
+				<Property Name="Source[1].itemID" Type="Ref">/My Computer/lib</Property>
+				<Property Name="Source[1].newName" Type="Str">lib</Property>
+				<Property Name="Source[1].properties[0].type" Type="Str">Remove front panel</Property>
+				<Property Name="Source[1].properties[0].value" Type="Bool">true</Property>
+				<Property Name="Source[1].properties[1].type" Type="Str">Remove block diagram</Property>
+				<Property Name="Source[1].properties[1].value" Type="Bool">true</Property>
+				<Property Name="Source[1].propertiesCount" Type="Int">2</Property>
+				<Property Name="Source[1].sourceInclusion" Type="Str">Include</Property>
+				<Property Name="Source[1].type" Type="Str">Container</Property>
+				<Property Name="Source[2].destinationIndex" Type="Int">0</Property>
+				<Property Name="Source[2].itemID" Type="Ref">/My Computer/apollo.vi</Property>
+				<Property Name="Source[2].sourceInclusion" Type="Str">TopLevel</Property>
+				<Property Name="Source[2].type" Type="Str">VI</Property>
+				<Property Name="Source[3].Container.applyPrefix" Type="Bool">true</Property>
+				<Property Name="Source[3].destinationIndex" Type="Int">0</Property>
+				<Property Name="Source[3].itemID" Type="Ref">/My Computer/lib/Camera/SimulatedCamera</Property>
+				<Property Name="Source[3].newName" Type="Str">sim</Property>
+				<Property Name="Source[3].properties[0].type" Type="Str">Remove front panel</Property>
+				<Property Name="Source[3].properties[0].value" Type="Bool">true</Property>
+				<Property Name="Source[3].properties[1].type" Type="Str">Remove block diagram</Property>
+				<Property Name="Source[3].properties[1].value" Type="Bool">true</Property>
+				<Property Name="Source[3].propertiesCount" Type="Int">2</Property>
+				<Property Name="Source[3].sourceInclusion" Type="Str">Include</Property>
+				<Property Name="Source[3].type" Type="Str">Container</Property>
+				<Property Name="Source[4].Container.applyPrefix" Type="Bool">true</Property>
+				<Property Name="Source[4].destinationIndex" Type="Int">0</Property>
+				<Property Name="Source[4].itemID" Type="Ref">/My Computer/lib/Camera/SXVF-H9</Property>
+				<Property Name="Source[4].newName" Type="Str">sxvf</Property>
+				<Property Name="Source[4].properties[0].type" Type="Str">Remove front panel</Property>
+				<Property Name="Source[4].properties[0].value" Type="Bool">true</Property>
+				<Property Name="Source[4].properties[1].type" Type="Str">Remove block diagram</Property>
+				<Property Name="Source[4].properties[1].value" Type="Bool">true</Property>
+				<Property Name="Source[4].propertiesCount" Type="Int">2</Property>
+				<Property Name="Source[4].sourceInclusion" Type="Str">Include</Property>
+				<Property Name="Source[4].type" Type="Str">Container</Property>
+				<Property Name="Source[5].Container.applyInclusion" Type="Bool">true</Property>
+				<Property Name="Source[5].destinationIndex" Type="Int">0</Property>
+				<Property Name="Source[5].itemID" Type="Ref"></Property>
+				<Property Name="Source[5].sourceInclusion" Type="Str">Include</Property>
+				<Property Name="Source[5].type" Type="Str">Container</Property>
+				<Property Name="SourceCount" Type="Int">6</Property>
+			</Item>
+		</Item>
 	</Item>
 </Project>
