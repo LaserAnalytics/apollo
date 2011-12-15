@@ -128,7 +128,9 @@ VIs are described below.
   - _getImageFromCamera.vi_: Acquires an image from the camera. If a camera
     handle is required for these functions it should be written to the class'
     data in _open.vi_ and acquired in this function. The output must be a
-    16-bit unsigned integer 2D array.
+    16-bit unsigned integer 2D array. __Additionally, any DLL defined here
+    should be set to 'Run in any thread'.__ Otherwise the front panel of
+    Apollo will become significantly less responsive.
 
   - _hardwareStop.vi_: Defines what to do when the program is stopped and the
     camera is deallocated. This method can be called in times of application
@@ -139,6 +141,10 @@ VIs are described below.
 
 Examples of how to program a new camera can be found by looking at the already
 defined child classes of _Camera.lvclass_, such as _SimulatedCamera_.
+
+That's it! Your new camera can now be picked from the Apollo initial dialogue
+box and used to capture frames.
+
 
 Naming Conventions
 ------------------
