@@ -161,7 +161,7 @@ have access to a semaphore that describes whether or not the camera is
 running. The front panel acquires this semaphore and sets the class' running
 boolean to false in order to stop execution.
 
-The camera subclass is dynamically loaded into memory at the beginning of the
+The Camera subclass is dynamically loaded into memory at the beginning of the
 program. This allows the program to be used when the drivers and support files
 for certain cameras are not installed on the system. A pointer is then created
 for the Camera child class instance, which allows the producer and consumer
