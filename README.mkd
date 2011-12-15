@@ -1,13 +1,179 @@
-The main file is `apollo.vi`. A project file `apollo.lvproj` should be used if
-editing is required.
+Introduction
+============
 
-The install files and instructions to install the Starlight Xpress SXVF-H9
-camera are in `SXVF-H9_install.zip`.
+Apollo is both a platform to acquire images from a camera and a front end to
+display and analyse the images acquired in real time. It provides a LabVIEW
+class system that can be easily modified to add new cameras to the system.
 
-Apollo requires the [Laser Analytics TIFF writing library][camtiff] to
-function.  A compiled .dll is included in the `lib` folder, but this may not
-work if your system is not 32-bit windows. To recompile the camtiff.dll file,
-please the the [camtiff][latwuc] github page.
+The front end is designed with broadband spectroscopic applications in mind,
+specially as those where a broadband light source is dispersed into a line
+using a diffracting optical element. The front end features a real time graph
+that visualises the pixel value output of the camera across one row.
 
-[camtiff]: https://github.com/LaserAnalytics/latwuc "Laser Analytics TIFF Writer University of Cambridge"
+Apollo requires Windows.
 
+Apollo can run on LabVIEW 8.6 and newer.
+
+
+Install
+=======
+
+On 32-bit Windows systems, simply download the repository. If you would like
+to use the Starlight Xpress Camera, please unzip _SXVF-H9\_install.zip_ and
+follow the directions in the file _README.txt_
+
+Currently, 64-bit versions of Windows are not supported. However, if you would
+like to modify Apollo to run in a 64-bit environment, the only file that
+needs to be altered is _lib/tiffWrite.vi_, which requires a 64-bit version of
+_lib/camtiff.dll_ instead of the included 32-bit version. For instructions on
+how to compile a 64-bit version of _camtiff.dll_ see the [camtiff][camtiff]
+repository.
+
+Run
+===
+
+Apollo can be run by opening _apollo.vi_.
+
+A dialogue box will appear which asks which kind of camera you would like to
+use. __If you select a camera for which you do not have the proper drivers and
+support files installed, you will get an error dialogue box. Please close the
+application try another camera, or install the files necessary for a
+particular camera.__
+
+After this dialogue box, you should see a screen that looks like so.
+
+             Camera Name        Graph Cntl
+             -----------------------------
+             |                           |
+             |      Graph of Cursor      |
+             |                           |
+             -----------------------------
+    Basic    |                           |
+    Camera   |                           |
+    Cntl     |                           |
+             |                           |
+             |       Camera Image        |
+             |                           |
+    Cursor   |                           |
+    Width    |                           |
+             -----------------------------
+             Capture Cntl       Image Cntl
+
+             Image Info         Advanced Camera Parameters
+
+The layout is relatively simple. Information pertaining to exposure and the
+number of frames to capture are on the left (labelled basic camera controls).
+The buttons for starting a video loop of the camera and capturing frames
+to save are on the bottom of the camera image. User defined image info is
+provided by two white boxes to the left below the camera image. Finally some
+advanced parameters for the camera, such as image dimensions and binning, are
+included to the right underneath the image.
+
+Images can be captured at any time, when the video is either running or not.
+The number of frames to capture can be set through the _number of frames_
+control on the left side of the image. When the _Capture Frames_ button is
+pressed it will gray out all the capture control buttons until the operation
+finishes. A small numerical output for the number of frames currently in
+the capture buffer is provided to the left of the _Save_ button. The _Clear
+Frames_ button clears the capture buffer, and the _Save_ button will write the
+capture buffer to a compressed TIFF file.
+
+When saving the capture buffer, a dialogue box will appear if the name of the
+experimenter is not already provided. This is because when Apollo saves the
+buffer to a TIFF stack, it attempts to save as much of the information about
+the camera itself and what was being captured into the metadata of the TIFF
+file. This metadata can be observed with most image viewers, although it is
+important to note that some programs do not list all of the metadata inside of
+a TIFF. If a particular field of interest is missing, attempt another image
+viewer (Preview on Mac works well).
+
+The yellow line across the camera image can be dragged up and down, and it
+defines the values to be plotted in the "graph of cursor". Additionally, an
+averaging over multiple rows can be done by altering the _cursor width_
+control on the left side of the image. As this value increases, a red line
+will appear on the camera image. The space between the yellow line and the red
+line are the rows that are averaged in the graph on top of the image, where
+each column is averaged to provide one value.
+
+The graphs and image both feature a control palette that allows zooming,
+panning, and cursor movement. The graph palette is above the above the graph
+and image palette is below the image.
+
+Program
+=======
+
+__Currently only 16-bit black and white cameras are supported!__
+
+Programming should be done through the _apollo.lvproj_ project file, as this
+will allow _apollo.vi_ to be opened without running, allows for LabVIEW
+classes to be easily created, and keeps the project organised.
+
+Creating a new camera is relatively simple. This can be done by creating a
+new child class of the parent _Camera.lvclass_. This new child class must be
+under the _lib/Camera_ folder, in folder that has the same name as the new
+camera. For example, _lib/Camera/AndorXPS42/AndorXPS42.lvclass_ is a valid
+file structure for a child class called AndorXPS42. It is important this file
+structure is held to, as it is used to create an entry in the dialogue box
+to select the camera when Apollo starts running and defines the way that the
+camera is loaded into Apollo (and LabVIEW itself).
+
+Once the new child class has been created, the VIs _open.vi_,
+_getImageFromCamera.vi_, and _hardwareStop.vi_ need to be overridden. These
+VIs are described below.
+
+  - _open.vi_: Provides the initialisation of the hardware. Additionally, the
+    information about the camera make and model should be written to the
+    class' data.
+
+  - _getImageFromCamera.vi_: Acquires an image from the camera. If a camera
+    handle is required for these functions it should be written to the class'
+    data in _open.vi_ and acquired in this function. The output must be a
+    16-bit unsigned integer 2D array.
+
+  - _hardwareStop.vi_: Defines what to do when the program is stopped and the
+    camera is deallocated. This method can be called in times of application
+    closure __and when the camera encounters an error.__ As such, care should
+    be taken to write a VI that can deallocate the camera safely no matter
+    what state the camera is in.
+
+
+Examples of how to program a new camera can be found by looking at the already
+defined child classes of _Camera.lvclass_, such as _SimulatedCamera_.
+
+Naming Conventions
+------------------
+
+For those who would like to push code to this repository, the following basic
+code style is used.
+
+  - Classes are named with camel case, no spaces, with the first character
+    appearing in uppercase.
+  - Methods are similarly defined, but with a lowercase first character.
+  - Variables are all lower case, and often delimited with an underscore.
+  - Boolean values which are meant to be queried (instead of just used as
+    front panel elements) end in a question mark.
+  - All Camera child classes should have only private or protected members.
+
+
+License
+=======
+
+Copyright (C) 2011 Ryan Orendorff, University of Cambridge
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later
+version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with
+this program. If not, see <http://www.gnu.org/licenses/>.
+
+<!-- Links -->
+[camtiff]: https://github.com/LaserAnalytics/camtiff "University of Cambridge TIFF Writer"
+
+<!-- vim: set spelllang=en_gb: -->
+<!-- vim: set spell: -->
