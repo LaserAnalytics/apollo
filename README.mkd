@@ -105,7 +105,7 @@ of the application (like any other Windows application).
 Program
 =======
 
-__Currently only 16-bit black and white cameras are supported!__
+__Currently Apollo is only capable of storing and writing 16-bit arrays.__
 
 Programming should be done through the _apollo.lvproj_ project file, as this
 will allow _apollo.vi_ to be opened without running, allows for LabVIEW
@@ -121,8 +121,8 @@ to select the camera when Apollo starts running and defines the way that the
 camera is loaded into Apollo (and LabVIEW itself).
 
 Once the new child class has been created, the VIs _open.vi_,
-_getImageFromCamera.vi_, and _hardwareStop.vi_ need to be overridden. These
-VIs are described below.
+_getImageFromCamera.vi_, _hardwareStop.vi_, and _\_advancedControls.vi_ need
+to be overridden. These VIs are described below.
 
   - _*.ctl_: The private data for the new camera. Put properties in here such
     as acquisition parameters or data handlers.
