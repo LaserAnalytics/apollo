@@ -35,9 +35,9 @@ Run
 Apollo can be run by opening _apollo.vi_.
 
 A dialogue box will appear which asks which kind of camera you would like to
-use. __If you select a camera for which you do not have the proper drivers and
-support files installed, you will get an error dialogue box. Please close the
-application try another camera, or install the files necessary for a
+use. __If you select a camera for which you do not have the proper drivers
+and support files installed, you will get an error dialogue box. Please close
+the application try another camera, or install the files necessary for a
 particular camera.__
 
 After this dialogue box, you should see a screen that looks like so.
@@ -48,9 +48,9 @@ After this dialogue box, you should see a screen that looks like so.
              |      Graph of Cursor      |
              |                           |
              -----------------------------
-    Basic    |                           |
-    Camera   |                           |
-    Cntl     |                           |
+             |                           |
+             |                           |
+             |                           |
              |                           |
              |       Camera Image        |
              |                           |
@@ -59,7 +59,7 @@ After this dialogue box, you should see a screen that looks like so.
              -----------------------------
              Capture Cntl       Image Cntl
 
-             Image Info         Advanced Camera Parameters
+             Camera Cntl        Image Info
 
 The layout is relatively simple. Information pertaining to exposure and the
 number of frames to capture are on the left (labelled basic camera controls).
@@ -88,8 +88,8 @@ a TIFF. If a particular field of interest is missing, attempt another image
 viewer (Preview on Mac works well).
 
 The yellow line across the camera image can be dragged up and down, and it
-defines the values to be plotted in the "graph of cursor". Additionally, an
-averaging over multiple rows can be done by altering the _cursor width_
+defines the values to be plotted in the "graph of cursor". Additionally,
+an averaging over multiple rows can be done by altering the _cursor width_
 control on the left side of the image. As this value increases, a red line
 will appear on the camera image. The space between the yellow line and the red
 line are the rows that are averaged in the graph on top of the image, where
@@ -124,6 +124,9 @@ Once the new child class has been created, the VIs _open.vi_,
 _getImageFromCamera.vi_, and _hardwareStop.vi_ need to be overridden. These
 VIs are described below.
 
+  - _*.ctl_: The private data for the new camera. Put properties in here such
+    as acquisition parameters or data handlers.
+
   - _open.vi_: Provides the initialisation of the hardware. Additionally, the
     information about the camera make and model should be written to the
     class' data.
@@ -140,6 +143,16 @@ VIs are described below.
     closure __and when the camera encounters an error.__ As such, care should
     be taken to write a VI that can deallocate the camera safely no matter
     what state the camera is in.
+
+  - _\_advancedControls.vi_: This is an optional method to override. However,
+    this VI is used by Apollo to set information about the camera
+    such as the exposure time or binning. This VI checks out a copy
+    of the Camera.lvclass object, so it must be stored back into the
+    class output upon VI completion. Additionally this VI should be
+    made to run as a [modal window][modal] so that the user cannot
+    interact with the rest of Apollo while this VI is running. See
+    _lib/Camera/SimulatedCamera/_advancedControls.vi_ for an example of how to
+    make this VI.
 
 
 Examples of how to program a new camera can be found by looking at the already
@@ -176,9 +189,9 @@ operations are occurring.
 
 These images are then displayed on the front panel. If the capture mode is
 set, then the images are appended to a three dimensional unsigned 16-bit
-array, and the number of frames captured is incremented. A cursor on the image
-control allows for the values from a row of pixels to be graphed on the grid
-above the image. A set of rows can be averaged and graphed this way by
+array, and the number of frames captured is incremented. A cursor on the
+image control allows for the values from a row of pixels to be graphed on the
+grid above the image. A set of rows can be averaged and graphed this way by
 altering the _cursor width_ control.
 
 When the _Save_ button is pressed, the array and support information is passed
@@ -186,8 +199,8 @@ to a DLL called _camtiff.dll_, which is an interface to the libTIFF 3.9.5 C
 library. This allows for the frames to be saved, along with metadata about the
 images such as the experimenter's name.
 
-Finally, when the program is closed the queue is released and the
-appropriate _hardwareStop.vi_ is called for camera in use.
+Finally, when the program is closed the queue is released and the appropriate
+_hardwareStop.vi_ is called for camera in use.
 
 If you would like to explore this yourself, all of the producer code is
 located in _Camera.lvclass_ and all of the consumer and front panel code can
@@ -229,6 +242,7 @@ this program. If not, see <http://www.gnu.org/licenses/>.
 [camtiff]: https://github.com/LaserAnalytics/camtiff "University of Cambridge TIFF Writer"
 [producer-consumer]: http://en.wikipedia.org/wiki/Producer-consumer_problem
 "Wikipedia: Producer-consumer problem"
+[modal]: http://zone.ni.com/reference/en-XX/help/371361E-01/lvdialog/cust_window_appearance_db/ "Customize Window Appearance Dialog Box"
 
 <!-- vim: set spelllang=en_gb: -->
 <!-- vim: set spell: -->
