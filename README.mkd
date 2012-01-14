@@ -18,13 +18,14 @@ Apollo can run on LabVIEW 8.6 and newer.
 Install
 =======
 
-On 32-bit Windows systems, simply download the repository. If you would like
-to use the Starlight Xpress Camera, please unzip _SXVF-H9\_install.zip_ and
-follow the directions in the file _README.txt_
+For 32-bit LabVIEW environments (on both 32 and 64 bit versions of Windows),
+simply download the repository. If you would like to use the Starlight Xpress
+Camera, please unzip _SXVF-H9\_install.zip_ and follow the directions in the
+file _README.txt_
 
-Currently, 64-bit versions of Windows are not supported. However, if you would
-like to modify Apollo to run in a 64-bit environment, the only file that
-needs to be altered is _lib/tiffWrite.vi_, which requires a 64-bit version of
+Currently, 64-bit versions of LabVIEW are not supported. However, if you would
+like to modify Apollo to run in a 64-bit environment, the only file that needs
+to be altered is _lib/tiffWrite.vi_, which requires a 64-bit version of
 _lib/camtiff.dll_ instead of the included 32-bit version. For instructions on
 how to compile a 64-bit version of _camtiff.dll_ see the [camtiff][camtiff]
 repository.
