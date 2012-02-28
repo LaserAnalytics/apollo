@@ -1,0 +1,8 @@
+v0.01 (14/01/12 18:17:00) - Ryan Orendorff <ro265@cam.ac.uk>
+============================================================
+
+- Initial Release.
+
+- Supports SXVF-H9 Camera, Logitech C200 webcam, and a simulated camera.
+
+- Exprots data as a tiff using camtiff in 16-bit stacks.

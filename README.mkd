@@ -18,13 +18,14 @@ Apollo can run on LabVIEW 8.6 and newer.
 Install
 =======
 
-On 32-bit Windows systems, simply download the repository. If you would like
-to use the Starlight Xpress Camera, please unzip _SXVF-H9\_install.zip_ and
-follow the directions in the file _README.txt_
+For 32-bit LabVIEW environments (on both 32 and 64 bit versions of Windows),
+simply download the repository. If you would like to use the Starlight Xpress
+Camera, please unzip _SXVF-H9\_install.zip_ and follow the directions in the
+file _README.txt_
 
-Currently, 64-bit versions of Windows are not supported. However, if you would
-like to modify Apollo to run in a 64-bit environment, the only file that
-needs to be altered is _lib/tiffWrite.vi_, which requires a 64-bit version of
+Currently, 64-bit versions of LabVIEW are not supported. However, if you would
+like to modify Apollo to run in a 64-bit environment, the only file that needs
+to be altered is _lib/tiffWrite.vi_, which requires a 64-bit version of
 _lib/camtiff.dll_ instead of the included 32-bit version. For instructions on
 how to compile a 64-bit version of _camtiff.dll_ see the [camtiff][camtiff]
 repository.
@@ -97,7 +98,9 @@ each column is averaged to provide one value.
 
 The graphs and image both feature a control palette that allows zooming,
 panning, and cursor movement. The graph palette is above the above the graph
-and image palette is below the image.
+and image palette is below the image. Additionally right clicking on the image
+brings up a set of options for the image such as transposition (these do not
+alter the raw data).
 
 To quit the program simply press the red close button on the top right corner
 of the application (like any other Windows application).
@@ -161,6 +164,7 @@ defined child classes of _Camera.lvclass_, such as _SimulatedCamera_.
 That's it! Your new camera can now be picked from the Apollo initial dialogue
 box and used to capture frames.
 
+
 For those who are curious how Apollo works
 ------------------------------------------
 
@@ -205,20 +209,6 @@ _hardwareStop.vi_ is called for camera in use.
 If you would like to explore this yourself, all of the producer code is
 located in _Camera.lvclass_ and all of the consumer and front panel code can
 be access through _apollo.vi_.
-
-Naming Conventions
-------------------
-
-For those who would like to push code to this repository, the following basic
-code style is used.
-
-  - Classes are named with camel case, no spaces, with the first character
-    appearing in uppercase.
-  - Methods are similarly defined, but with a lowercase first character.
-  - Variables are all lower case, and often delimited with an underscore.
-  - Boolean values which are meant to be queried (instead of just used as
-    front panel elements) end in a question mark.
-  - All Camera child classes should have only private or protected members.
 
 
 License
