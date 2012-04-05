@@ -39,7 +39,7 @@
 		<Property Name="NI.LibItem.Scope" Type="Int">3</Property>
 	</Item>
 	<Item Name="getImageFromCamera.vi" Type="VI" URL="../getImageFromCamera.vi">
-		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">#'#!!1!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!&amp;=!!!!$A!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!"!!!!!5!"A!!&amp;E"!!!,``````````Q!&amp;"7FN97&gt;F!""!6!!'#82J&lt;76T&gt;'&amp;N=!!/1$$`````"'VF&gt;'%!!"*!5!!$!!9!"Q!)"7FN97&gt;F!$:!=!!?!!!:&amp;V.J&lt;86M982F:%.B&lt;76S93ZM&gt;G.M98.T!".4;7VV&lt;'&amp;U:72$97VF=G%A&lt;X6U!#"!5!!$!!!!!1!#%W6S=G^S)'FO)#BO&lt;S"F=H*P=CE!.E"Q!"Y!!"E85WFN&gt;7RB&gt;'6E1W&amp;N:8*B,GRW9WRB=X-!%F.J&lt;86M982F:%.B&lt;76S93"J&lt;A!!0!$Q!!Q!!Q!%!!E!#A!%!!1!"!!%!!M!"!!*!!Q$!!"Y$1A!!!E!D1M!!!!!!!!!!!I!!!!)!*)!!!!!!1!.!!!!!!</Property>
+		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">#'#!!1!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!&amp;=!!!!$A!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!"!!!!!5!"A!!&amp;E"!!!,``````````Q!&amp;"7FN97&gt;F!""!6!!'#82J&lt;76T&gt;'&amp;N=!!/1$$`````"'VF&gt;'%!!"*!5!!$!!9!"Q!)"7FN97&gt;F!$:!=!!?!!!:&amp;V.J&lt;86M982F:%.B&lt;76S93ZM&gt;G.M98.T!".4;7VV&lt;'&amp;U:72$97VF=G%A&lt;X6U!#"!5!!$!!!!!1!#%W6S=G^S)'FO)#BO&lt;S"F=H*P=CE!.E"Q!"Y!!"E85WFN&gt;7RB&gt;'6E1W&amp;N:8*B,GRW9WRB=X-!%F.J&lt;86M982F:%.B&lt;76S93"J&lt;A!!0!$Q!!Q!!Q!%!!E!#A!%!!1!"!!%!!M!"!!*!!Q$!!"Y$1A!!!E!D1M!!!!!!!!!!!A!!!!)!*!!!!!!!1!.!!!!!!</Property>
 		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
 		<Property Name="NI.ClassItem.Flags" Type="Int">0</Property>
 		<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">false</Property>
